@@ -16,14 +16,14 @@ public class ConexionMysql {
     public static ConexionMysql instance;
     private Connection cnn;
     
-    private String url = "jdbc:posgresql://ec2-52-204-213-254.compute-1.amazonaws.com:5432/d8q9tqk63rgjhr";
+    private String url = "jdbc:postgresql://ec2-52-204-213-254.compute-1.amazonaws.com:5432/d8q9tqk63rgjhr?sslmode=require";
     private String user = "fblzlastlodhtk";
     private String pss = "7c33455570c18ebf0684086383ba5774854f8b8b81b85844b3e06631dc143167";
     
     private ConexionMysql()
     {
         try {
-            Class.forName("org.posgresql.Driver");
+            Class.forName("org.postgresql.Driver");
             cnn = DriverManager.getConnection(url, user, pss);
         } catch (ClassNotFoundException ex) {
             System.out.println("error 1 " + ex.getMessage());
